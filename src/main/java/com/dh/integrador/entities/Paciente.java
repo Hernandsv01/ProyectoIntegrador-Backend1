@@ -24,9 +24,9 @@ public class Paciente {
     @Column
     private LocalDate fechaIngreso;
 
-//    @OneToOne(cascade = CascadeType.REMOVE,fetch = FetchType.LAZY)
-//    @JoinColumn(name = "domicilio_id",referencedColumnName = "id")
-//    private Domicilio domicilio;
+    @OneToOne(cascade = CascadeType.REMOVE,fetch = FetchType.LAZY)
+    @JoinColumn(name = "domicilio_id",referencedColumnName = "id")
+    private Domicilio domicilio;
 //    @JsonIgnore
 //    @OneToMany(mappedBy = "paciente",fetch = FetchType.LAZY)
 //    private Set<Turno> turnos=new HashSet<>();
@@ -84,13 +84,13 @@ public class Paciente {
         this.fechaIngreso = fechaIngreso;
     }
 
-//    public Domicilio getDomicilio() {
-//        return domicilio;
-//    }
-//
-//    public void setDomicilio(Domicilio domicilio) {
-//        this.domicilio = domicilio;
-//    }
+    public Domicilio getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(Domicilio domicilio) {
+        this.domicilio = domicilio;
+    }
 //
 //    public Set<Turno> getTurnos() {
 //        return turnos;
