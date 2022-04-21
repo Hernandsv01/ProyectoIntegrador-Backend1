@@ -19,7 +19,7 @@ public class OdontologoController {
 
     @GetMapping
     public List<Odontologo> listarOdontologos(){
-        return odontologoService.buscarOdontologos();
+        return odontologoService.listarOdontologos();
     }
     @PostMapping
     public Odontologo registrar(@RequestBody Odontologo odontologo){

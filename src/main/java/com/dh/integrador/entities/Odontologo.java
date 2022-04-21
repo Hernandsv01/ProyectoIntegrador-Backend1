@@ -1,8 +1,8 @@
 package com.dh.integrador.entities;
 
 import javax.persistence.*;
-//import java.util.HashSet;
-//import java.util.Set;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="odontologos")
@@ -17,8 +17,8 @@ public class Odontologo {
     @Column
     private String matricula;
 
-//    @OneToMany(mappedBy = "odontologo",fetch = FetchType.LAZY)
-//    private Set<Turno> turnos= new HashSet<>();
+    @OneToMany(mappedBy = "odontologo", fetch = FetchType.LAZY)
+    private Set<Turno> turnos= new HashSet<>();
     
     
     public Odontologo(){
@@ -57,11 +57,11 @@ public class Odontologo {
         this.matricula = matricula;
     }
 
-//    public Set<Turno> getTurnos() {
-//        return turnos;
-//    }
-//
-//    public void setTurnos(Set<Turno> turnos) {
-//        this.turnos = turnos;
-//    }
+    public Set<Turno> getTurnos() {
+        return turnos;
+    }
+
+    public void setTurnos(Set<Turno> turnos) {
+        this.turnos = turnos;
+    }
 }

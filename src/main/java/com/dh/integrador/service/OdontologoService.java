@@ -15,7 +15,7 @@ public class OdontologoService {
     @Autowired
     OdontologoRepository repository;
 
-    public List<Odontologo> buscarOdontologos(){
+    public List<Odontologo> listarOdontologos(){
         return repository.findAll();
     }
     public Optional<Odontologo> buscar(Long id){

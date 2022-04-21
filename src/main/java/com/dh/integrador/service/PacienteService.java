@@ -1,8 +1,8 @@
 package com.dh.integrador.service;
 
-import com.dh.clase36.integradora.entities.Paciente;
-import com.dh.clase36.integradora.exceptions.ResourceNotFoundException;
-import com.dh.clase36.integradora.repository.PacienteRepository;
+import com.dh.integrador.entities.Paciente;
+import com.dh.integrador.exceptions.ResourceNotFoundException;
+import com.dh.integrador.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +22,7 @@ public class PacienteService{
     public Paciente buscarXEmail(String email) {
         return pacienteIDao.buscarEmail(email);
     }
-     */
+    */
 
     public Paciente guardar(Paciente paciente) {
         return repository.save(paciente);
