@@ -1,6 +1,7 @@
 package com.dh.integrador.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -9,14 +10,15 @@ import java.util.Set;
 
 @Entity
 @Table(name="pacientes")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Paciente {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
-    private String apellido;
-    @Column
     private String nombre;
+    @Column
+    private String apellido;
     @Column
     private String email;
     @Column
@@ -24,17 +26,20 @@ public class Paciente {
     @Column
     private LocalDate fechaIngreso;
 
-    @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "domicilio_id", referencedColumnName = "id")
     private Domicilio domicilio;
-    @JsonIgnore
+    
     @OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<Turno> turnos=new HashSet<>();
 
 
-    public Paciente (){
-
+    public Paciente(){
     }
+//    public Paciente(Long id){
+//        this.id = id;
+//    }
 
     public Long getId() {
         return id;

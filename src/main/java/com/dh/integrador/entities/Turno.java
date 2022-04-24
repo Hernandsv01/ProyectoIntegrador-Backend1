@@ -7,15 +7,15 @@ import java.time.LocalDate;
 @Table(name="turnos")
 public class Turno {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="paciente_id",nullable = false)
+    @JoinColumn(name="paciente_id", nullable = false)
     private Paciente paciente;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="odontologo_id",nullable = false)
+    @JoinColumn(name="odontologo_id", nullable = false)
     private Odontologo odontologo;
 
     @Column
@@ -29,6 +29,12 @@ public class Turno {
         return id;
     }
 
+    public Turno(Paciente paciente, Odontologo odontologo, LocalDate fecha) {
+        this.paciente = paciente;
+        this.odontologo = odontologo;
+        this.fecha = fecha;
+    }
+    
     public void setId(Long id) {
         this.id = id;
     }

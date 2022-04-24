@@ -1,14 +1,18 @@
 package com.dh.integrador.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Entity
 @Table(name="odontologos")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Odontologo {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
     private String nombre;
@@ -18,6 +22,7 @@ public class Odontologo {
     private String matricula;
 
     @OneToMany(mappedBy = "odontologo", fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<Turno> turnos= new HashSet<>();
     
     

@@ -32,7 +32,7 @@ public class TurnoController {
         Optional<Paciente> paciente= pacienteService.buscar(turno.getPaciente().getId());
         Optional<Odontologo> odontologo= odontologoService.buscar(turno.getOdontologo().getId());
         //control
-        if (paciente.isPresent()&&odontologo.isPresent()){
+        if (paciente.isPresent() && odontologo.isPresent()){
             //okey, podemos agregar el turno
             respuesta=ResponseEntity.ok(turnoService.guardar(turno));
         }

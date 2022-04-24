@@ -20,8 +20,10 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         BCryptPasswordEncoder passwordEncoder= new BCryptPasswordEncoder();
         
-        String pass= passwordEncoder.encode("digital");
-        userRepository.save(new AppUser("Rodolfo","Rodolfo","rodolfo@gmail.com",pass, AppUsuarioRoles.ROLE_USER));
+        String pass1 = passwordEncoder.encode("digital01");
+        userRepository.save(new AppUser("Hernan", "hernan","hernan@gmail.com",pass1, AppUsuarioRoles.ROLE_USER));
+        String pass2 = passwordEncoder.encode("digital01");
+        userRepository.save(new AppUser("Sensei", "sensei","sensei@gmail.com",pass2, AppUsuarioRoles.ROLE_ADMIN));
     }
     
 }

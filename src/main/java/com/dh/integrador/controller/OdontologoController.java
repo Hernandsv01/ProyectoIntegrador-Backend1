@@ -17,13 +17,13 @@ public class OdontologoController {
     @Autowired
     private OdontologoService odontologoService;
 
-    @GetMapping
+    @GetMapping("/listar")
     public List<Odontologo> listarOdontologos(){
         return odontologoService.listarOdontologos();
     }
     @PostMapping
-    public Odontologo registrar(@RequestBody Odontologo odontologo){
-        return odontologoService.guardar(odontologo);
+    public ResponseEntity<Odontologo> registrar(@RequestBody Odontologo odontologo){
+        return ResponseEntity.ok(odontologoService.guardar(odontologo));
     }
 
     @PutMapping

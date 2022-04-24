@@ -26,8 +26,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/turnos/**").hasRole("USER")
+                //A qué endpoints puede acceder cada user
+                .antMatchers("/turnos/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/odontologos/").hasRole("ADMIN")
+                .antMatchers("/odontologos/listar").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/odontologos/{id}").hasRole("ADMIN")
+                .antMatchers("/pacientes/").hasRole("ADMIN")
+                .antMatchers("/pacientes/listar").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/pacientes/{id}").hasRole("ADMIN")
+                .antMatchers("/turnos/**").hasAnyRole("USER", "ADMIN")
+                //Resto de endpoints puede acceder cualquiera que esté autenticado
                 .anyRequest().authenticated()
+                //Genera el form automatico de login y hace logout si se va al endpoint logout
                 .and().formLogin()
                 .and().logout();
     }

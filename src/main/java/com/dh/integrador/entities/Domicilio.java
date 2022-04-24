@@ -1,12 +1,13 @@
 package com.dh.integrador.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "domicilios")
 public class Domicilio {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
     private String calle;
@@ -18,6 +19,7 @@ public class Domicilio {
     private String provincia;
 
     @OneToOne(mappedBy = "domicilio")
+    @JsonIgnore
     private Paciente paciente;
 
     public Domicilio(){

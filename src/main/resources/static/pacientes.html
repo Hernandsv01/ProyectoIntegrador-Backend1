@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>CRUD pacientes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/update_paciente.js"></script>
+    <script type="text/javascript" src="/js/get_paciente.js"></script>
+    <script type="text/javascript" src="/js/post_paciente.js"></script>
+</head>
+<body>
+<div class="container">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" href="/">Volver</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/alta-paciente.html">Agregar nuevo</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/pacientes/">Todos</a>
+        </li>
+    </ul>
+    <div id="div_paciente_table">
+        <h2>Pacientes</h2>
+        <div class="row col-md-6 table-responsive">
+            <table id="pacienteTable" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>email</th>
+                        <th>dni</th>
+                        <th>Fecha Alta</th>
+                        <th>Calle</th>
+                        <th>Altura</th>
+                        <th>Localidad</th>
+                        <th>Provincia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6" style="display: none;
+											background-color:#e6fffa; padding:10px; border-radius:3px"
+             id="div_paciente_updating">
+            <form id="update_paciente_form">
+                <h5>Información general</h5>
+                <div class="form-group">
+                    <label for="paciente_id">Id:</label>
+                    <input type="text" class="form-control" id="paciente_id" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="paciente_nombre">Nombre:</label>
+                    <input type="text" class="form-control" placeholder="nombre" id="paciente_nombre">
+                </div>
+                <div class="form-group">
+                    <label for="paciente_apellido">Apellido:</label>
+                    <input type="text" class="form-control" placeholder="apellido" id="paciente_apellido">
+                </div>
+                <div class="form-group">
+                    <label for="paciente_email">Email:</label>
+                    <input type="text" class="form-control" placeholder="email" id="paciente_email">
+                </div>
+                <div class="form-group">
+                    <label for="paciente_dni">DNI:</label>
+                    <input type="text" class="form-control" placeholder="dni" id="paciente_dni">
+                </div>
+                <div class="form-group">
+                    <label for="paciente_fecha_alta">Fecha Alta:</label>
+                    <input type="text" class="form-control" placeholder="Fecha Alta" id="paciente_fecha_alta">
+                </div>
+
+                <h5>Información domicilio</h5>
+                <div class="form-group">
+                    <label for="paciente_domicilio_calle">Calle:</label>
+                    <input type="text" class="form-control" placeholder="calle" id="paciente_domicilio_calle">
+                </div>
+                <div class="form-group">
+                    <label for="paciente_domicilio_numero">Altura:</label>
+                    <input type="text" class="form-control" placeholder="numero" id="paciente_domicilio_numero">
+                </div>
+                <div class="form-group">
+                    <label for="paciente_domicilio_localidad">Localidad:</label>
+                    <input type="text" class="form-control" placeholder="localidad" id="paciente_domicilio_localidad">
+                </div>
+                <div class="form-group">
+                    <label for="paciente_domicilio_provincia">Provincia:</label>
+                    <input type="text" class="form-control" placeholder="provincia" id="paciente_domicilio_provincia">
+                </div>
+                
+               
+            
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div id="response" style="display:none; margin:10px">
+            </div>
+        </div>
+    </div>
+    <hr>
+
+</div>
+</body>
+</html>
