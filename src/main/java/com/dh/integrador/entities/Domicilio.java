@@ -26,6 +26,13 @@ public class Domicilio {
 
     }
 
+    public Domicilio(String calle, Integer numero, String localidad, String provincia) {
+        this.calle = calle;
+        this.numero = numero;
+        this.localidad = localidad;
+        this.provincia = provincia;
+    }
+
     public Long getId() {
         return id;
     }

@@ -54,7 +54,7 @@ $(document).ready(function() {
         $("#dni").val("");
         $("#fechaalta").val("");
         $("#calle").val("");
-        $("#altura").val("");
+        $("#numero").val("");
         $("#localidad").val("");
         $("#provincia").val("");
     }

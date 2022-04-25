@@ -34,7 +34,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/pacientes/").hasRole("ADMIN")
                 .antMatchers("/pacientes/listar").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/pacientes/{id}").hasRole("ADMIN")
-                .antMatchers("/turnos/**").hasAnyRole("USER", "ADMIN")
                 //Resto de endpoints puede acceder cualquiera que esté autenticado
                 .anyRequest().authenticated()
                 //Genera el form automatico de login y hace logout si se va al endpoint logout

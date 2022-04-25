@@ -35,11 +35,17 @@ public class Paciente {
     private Set<Turno> turnos=new HashSet<>();
 
 
-    public Paciente(){
-    }
-//    public Paciente(Long id){
-//        this.id = id;
+//    public Paciente(){
 //    }
+
+    public Paciente(String nombre, String apellido, String email, int dni, LocalDate fechaIngreso, Domicilio domicilio) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.dni = dni;
+        this.fechaIngreso = fechaIngreso;
+        this.domicilio = domicilio;
+    }
 
     public Long getId() {
         return id;

@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import org.apache.log4j.Logger;
 
 @RestController
 @RequestMapping("/turnos")
 public class TurnoController {
+    private static final Logger logger = Logger.getLogger(TurnoController.class);
+    
     @Autowired
     private TurnoService turnoService;
     @Autowired
@@ -63,8 +66,12 @@ public class TurnoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminar(@PathVariable Long id) throws ResourceNotFoundException {
-        turnoService.eliminar(id);
+    public ResponseEntity<String> eliminar(@PathVariable Long id){
+        try {
+            turnoService.eliminar(id);
+        } catch (Exception e) {
+            logger.error(e);
+        }
         return ResponseEntity.ok("Se elimino el Turno sin problemas");
     }
 }

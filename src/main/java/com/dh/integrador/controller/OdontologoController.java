@@ -10,10 +10,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.apache.log4j.Logger;
 
 @RestController
 @RequestMapping("/odontologos")
 public class OdontologoController {
+    private static final Logger logger = Logger.getLogger(TurnoController.class);
+    
     @Autowired
     private OdontologoService odontologoService;
 
@@ -42,8 +45,12 @@ public class OdontologoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminarOdontologo(@PathVariable Long id) throws ResourceNotFoundException {
-        odontologoService.borrar(id);
+    public ResponseEntity<String> eliminarOdontologo(@PathVariable Long id){
+        try {
+            odontologoService.borrar(id);
+        } catch (Exception e) {
+            logger.error(e);
+        }
         return ResponseEntity.ok("Se elimino el odontologo sin problemas");
     }
 }

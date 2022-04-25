@@ -23,7 +23,7 @@ public class TurnoService {
     }
 
     public void eliminar(Long id) throws ResourceNotFoundException{
-        Optional<Turno> turnoBuscado= buscar(id);
+        Optional<Turno> turnoBuscado = buscar(id);
         if (turnoBuscado.isPresent())
             repository.deleteById(id);
         else
@@ -35,10 +35,7 @@ public class TurnoService {
     }
 
     public Turno actualizar(Turno turno) {
-        if(buscar(turno.getId()).isPresent())
-            return repository.save(turno);
-        else
-            return null;
+        return repository.save(turno);
     }
 
 

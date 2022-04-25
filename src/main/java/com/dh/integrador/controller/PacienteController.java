@@ -6,14 +6,16 @@ import com.dh.integrador.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.apache.log4j.Logger;
 
 @RestController
 @RequestMapping("/pacientes")
 public class PacienteController {
+    private static final Logger logger = Logger.getLogger(TurnoController.class);
+    
     @Autowired
     private PacienteService pacienteService;
     
@@ -42,9 +44,13 @@ public class PacienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminarPaciente(@PathVariable Long id) throws ResourceNotFoundException {
+    public ResponseEntity<String> eliminarPaciente(@PathVariable Long id){
+        try {
             pacienteService.eliminar(id);
-            return ResponseEntity.ok("Se elimino el paciente sin problemas");
+        } catch (Exception e) {
+            logger.error(e);
+        }
+        return ResponseEntity.ok("Se elimino el paciente sin problemas");
     }
 
 

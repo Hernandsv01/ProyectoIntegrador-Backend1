@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Entity
 @Table(name="odontologos")
@@ -28,6 +27,12 @@ public class Odontologo {
     
     public Odontologo(){
 
+    }
+
+    public Odontologo(String nombre, String apellido, String matricula) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.matricula = matricula;
     }
     
     public Long getId() {
